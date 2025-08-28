@@ -1,0 +1,7 @@
+group,fastq_1,fastq_2,strandedness
+Control,/mnt/c/test/fq/mini_rnaseq_chrM/ctrl1_R1.fastq.gz,/mnt/c/test/fq/mini_rnaseq_chrM/ctrl1_R2.fastq.gz,auto
+Control,/mnt/c/test/fq/mini_rnaseq_chrM/ctrl2_R1.fastq.gz,/mnt/c/test/fq/mini_rnaseq_chrM/ctrl2_R2.fastq.gz,auto
+Control,/mnt/c/test/fq/mini_rnaseq_chrM/ctrl3_R1.fastq.gz,/mnt/c/test/fq/mini_rnaseq_chrM/ctrl3_R2.fastq.gz,auto
+Test,/mnt/c/test/fq/mini_rnaseq_chrM/test1_R1.fastq.gz,/mnt/c/test/fq/mini_rnaseq_chrM/test1_R2.fastq.gz,auto
+Test,/mnt/c/test/fq/mini_rnaseq_chrM/test2_R1.fastq.gz,/mnt/c/test/fq/mini_rnaseq_chrM/test2_R2.fastq.gz,auto
+Test,/mnt/c/test/fq/mini_rnaseq_chrM/test3_R1.fastq.gz,/mnt/c/test/fq/mini_rnaseq_chrM/test3_R2.fastq.gz,auto
