@@ -1,4 +1,4 @@
-<img src="./media/banner.png" alt="banner" width="400"/><br>
+<img src="./media/banner.jpg" alt="banner" /><br>
 # Nextflow-RNA-Seq
 <i>An RNA-Seq analysis pipeline written in Nextflow</i>
 
@@ -45,10 +45,16 @@ Pre-Run Overview:
 <img src="./media/folders.jpg" alt="filetree"/><br>
 
 Output files include:
-1) Differential expression analysis
-- Test vs. Control expression results with Log2FC, p-value, and adjusted p-value. Note: the adjusted p-value significance cutoff can be set at the top of the DESeq2.R script if needed. Default is 0.05.
-- Volcano plot (-log10 p-value vs. Log2 FC). 
-- Significant genes list
-2) .Bam files
-- Before and after de-duplication using UMIs
-3) All other intermdediate files (countsMatrix, bam indices, etc.)
+1) Differential expression analysis table
+ <img src="./media/devalues.jpg" alt="detable"/><br><br>
+- Differential expression results with Log2FC, p-value, and adjusted p-value (test vs control)
+- Note: the adjusted p-value significance cutoff can be set at the top of the DESeq2.R script if needed. Default is 0.05.<br>
+- A basic Volcano plot (-log10 p-value vs. Log2 FC).<br>
+ <img src="./media/volcano.jpg" alt="volcanoplot"/><br><br>
+- A filtered table of significant genes<br><br>
+2) All aligned (.bam) files
+- Before and after de-duplication (using UMIs) bam files<br><br>
+3) All other intermdediate files<br>
+- countsMatrix
+- bam indices
+- etc...
