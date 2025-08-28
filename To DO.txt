@@ -1,5 +1,0 @@
-- Add in bedfile/bigwig creation?
-- Figure out how a FeatureCounts .bam file is different from previous files
-- AWS support?
-- Work on pre-processing steps
-- What about strandedness? Need to add.
