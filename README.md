@@ -1,24 +1,28 @@
 <img src="./media/banner.jpg" alt="banner" /><br>
-# Nextflow-RNA-Seq
-<i>An RNA-Seq analysis pipeline written in Nextflow</i>
+# Nextflow-RNA-Seq Pipelines
+<i>Written in Nextflow for PE reads</i>
 
 ## Overview:
-The pipeline includes fastq mapping and through differential expression analysis. I modelled it after the nf-core RNA-seq pipeline, but trimmed it down to function as a <i>specific</i> workflow rather than an all-purpose toolkit. A docker container is provided. All code was written entirely by me.
+These pipelines include fastq mapping and through differential expression analysis. I modeled them after nf-core's RNA-seq pipeline, but trimmed them down to function as a <i>specific</i> workflows rather than combining them into one all-purpose toolkit. This reduces errors due to runtime setting mistakes (IMHO). The included Docker container can run either pipeline. All code was written entirely by me.
 
-Requirements:
+## Requirements:
 - Your reads are paired-end and pre-cleaned
-- Your reads have UMIs
+- Your reads can UMIs (or not)
 - There are two DE groups (i.e. control vs. test)
 
-Processing Overview:
+## Processing Overview:
 - <b>Mapping</b> - RNA-STAR<br>
 - <b>Duplicate Read Removal</b> - UMI Tools<br>
 - <b>Read Counts</b> - FeatureCounts<br>
 - <b>Differential Expression Analysis</b> - DESeq2
 
-Pre-Run Overview:
-- You must start with pre-cleaned <b>paired-end</b> fastq files. It will not work with SE fastq files. See my other fastq cleanup scripts if needed.
-- You will be running mapRnaSeq.nf in the Docker container cbreuer/rnaseq:latest. Make sure you have Docker working.<br>
+## Pipeline Selection:
+- RnaSeq_PE is for PE reads without cell or UMI barcodes. It does not perform a deduplication step.
+- RnaSeq_PE_UMI.nf is for PE reads <b>with</b> UMI barcodes. It de-duplicates alignments using UMI-tools dedup.
+
+## Pre-Run Overview:
+- You must start with pre-cleaned <b>paired-end</b> fastq files. These pipeliens will not work with SE fastq files. See my other fastq cleanup scripts if needed.
+- You will be running either RnaSeq_PE.nf or RnaSeq_PE_UMI.nf in the Docker container cbreuer/rnaseq:latest. Make sure you have the Docker container pulled and working before you start.<br>
 - Inputs: (4)
 1) <b>Metadata file</b> with file names, locations, and control/test label (see the example template)
 2) <b>Fastq files</b> with names that match the expected filter (default is "<sample>_R1.fastq.gz" "<sample>_R2.fastq.gz")
