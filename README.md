@@ -1,6 +1,6 @@
 <img src="./media/banner.jpg" alt="banner" /><br>
 # Nextflow-RNA-Seq Pipelines
-<i>Written in Nextflow for PE reads</i>
+<i>For PE reads -/+ UMI barcodes</i>
 
 ## Overview:
 These pipelines include fastq mapping and through differential expression analysis. I modeled them after nf-core's RNA-seq pipeline, but trimmed them down to function as a <i>specific</i> workflows rather than combining them into one all-purpose toolkit. This reduces errors due to runtime setting mistakes (IMHO). The included Docker container can run either pipeline. All code was written entirely by me.
@@ -35,7 +35,7 @@ These pipelines include fastq mapping and through differential expression analys
 - Indicate the strandedness of your library. Parameter: fc_strand. 0 = unstranded, 1 = stranded and 2 = reversely stranded
 - Set up your output folder tree as you like
 #### 2) Ensure the fastq naming convention matches your files. 
-- Default is "_R1.fastq.gz" and "R2.fastq.gz".
+- Default is <i>"_R1.fastq.gz"</i> and <i>"R2.fastq.gz"</i>
 - File names can only have one "_". They should look like <i>"sample1_R1.fastq.gz"</i> and <i>"sample1_R2.fastq.gz"</i>.
 #### 3) Build a STAR genome or download one from [iGenomes](s3://ngi-igenomes/igenomes/Homo_sapiens/NCBI/GRCh38Decoy/Sequence/STARIndex/).
 #### 4) Download the transcripts.fasta file for your genome. Example: [Human HG38 Release48](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_48/gencode.v48.transcripts.fa.gz) from GenCode.
@@ -44,7 +44,7 @@ These pipelines include fastq mapping and through differential expression analys
 ## Run
 - Place your customized metadata file, fastq files, scripts, and STAR genome in local folders - I like to use WSL. 
 - Double check that file locations correct in the nextflow.config file.
-- Run "nextflow MapRnaSeq.nf". 
+- Run "nextflow run <yourScript>.nf". 
 - The pipeline will launch in docker container cbreuer/rnaseq. 
 - Results will be published to your local output folder.
 
