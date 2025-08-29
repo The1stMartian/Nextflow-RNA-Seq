@@ -17,8 +17,8 @@ These pipelines include fastq mapping and through differential expression analys
 - <b>Differential Expression Analysis</b> - DESeq2
 
 ## Pipeline Selection:
-- RnaSeq_PE is for PE reads without cell or UMI barcodes. It does not perform a deduplication step.
-- RnaSeq_PE_UMI.nf is for PE reads <b>with</b> UMI barcodes. It de-duplicates alignments using UMI-tools dedup.
+- <b>RNA-Seq PE:</b> for PE reads without cell or UMI barcodes. It does <i>not</i> perform a deduplication step.
+- <b>RNA-Seq PE UMI:</b> for PE reads <b>with</b> UMI barcodes. It de-duplicates alignments using UMI-tools dedup.
 
 ## Pre-Run Overview:
 - You must start with pre-cleaned <b>paired-end</b> fastq files. These pipeliens will not work with SE fastq files. See my other fastq cleanup scripts if needed.
