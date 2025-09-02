@@ -54,10 +54,21 @@ These pipelines include fastq mapping and through differential expression analys
 
 ### Differential expression analysis table
  <img src="./media/devalues.jpg" alt="detable"/><br><br>
+
 ### Differential expression results with Log2FC, p-value, and adjusted p-value (test vs control)
 - A filtered table of significant genes. Note that the adjusted p-value significance cutoff can be set at the top of the DESeq2.R script if needed. Default is 0.05.<br>
 - A basic Volcano plot (-log10 p-value vs. Log2 FC).<br><br>
- <img src="./media/volcano.jpg" alt="volcanoplot"/><br><br>
+<img src="./media/volcano.jpg" alt="volcanoplot"/><br><br>
+
+### Principal Component Analysis
+- Shows sample clustering, allows for rapid outlier detection
+<img src="./media/pci.jpg" alt="pci"/><br><br>
+
+### Correlation Matrix
+- Pair-wise comparisons with Pearson Correlation Coefficients<br>
+<img src="./media/correlationPlot.jpg" alt="pci"/><br><br>
+
+
 ### All aligned (.bam) files
 - Before and after de-duplication (using UMIs) bam files<br>
 ### All other intermdediate files<br>
