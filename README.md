@@ -1,9 +1,9 @@
 <img src="./media/banner.jpg" alt="banner" /><br>
-# Nextflow-RNA-Seq Pipelines
+# Nextflow RNA-Seq Pipelines
 <i>For PE reads -/+ UMI barcodes</i>
 
 ## Overview:
-These pipelines include fastq mapping and through differential expression analysis. I modeled them after nf-core's RNA-seq pipeline, but trimmed them down to function as a <i>specific</i> workflows rather than combining them into one all-purpose toolkit. This reduces errors due to runtime setting mistakes (IMHO). The included Docker container can run either pipeline. All code was written entirely by me.
+Two RNA-Seq pipelines options are available. They both take pre-cleaned, paired-end fastq files, with or without UMI barcodes as inputs. They start with read mapping and proceed through differential expression analysis. I modeled them after nf-core's RNA-seq pipeline, but trimmed them down to function as a <i>specific</i> workflows rather than combining them into one all-purpose toolkit. This helps reduce errors due to runtime setting mistakes (IMHO). The included Docker container can run either pipeline. All code was written entirely by me.
 
 ## Requirements:
 - Your reads are paired-end and pre-cleaned
@@ -21,14 +21,15 @@ These pipelines include fastq mapping and through differential expression analys
 - <b>RNA-Seq PE UMI:</b> for PE reads <b>with</b> UMI barcodes. It de-duplicates alignments using UMI-tools dedup.
 
 ## Pre-Run Overview:
-- You must start with pre-cleaned <b>paired-end</b> fastq files, -/+ UMIs. These pipelines will not work with SE fastq files or reads with cell barcodes. See my fastq cleanup scripts if needed.
+- You must start with pre-cleaned <b>paired-end</b> fastq files, -/+ UMIs. These pipelines will not work with SE fastq files or reads with cell barcodes. 
+- See my fastq [cleanup scripts](https://github.com/The1stMartian/Nextflow-Fastq-QC) if needed.
 - You will be running either RnaSeq_PE.nf or RnaSeq_PE_UMI.nf in the Docker container cbreuer/rnaseq:latest. Make sure you have the Docker container pulled and working before you start.<br>
 
 ## Inputs: (4)
-1) <b>Metadata file</b> with file names, locations, and control/test label (see the example template)
-2) <b>Fastq files</b> with names that match the expected filter (default is "<sample>_R1.fastq.gz" "<sample>_R2.fastq.gz")
+1) <b>Metadata file</b> - file names, locations, and control/test label for DE analysis. (See the provided example.)
+2) <b>Fastq files</b> - Default format is "<sample>_R1.fastq.gz" "<sample>_R2.fastq.gz"<br>
 3) <b>STAR genome index </b> (see below)
-4) <b>Transcripts.gtf</b> file
+4) <b>Transcripts.gtf</b> file ([Example](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_49/gencode.v49.transcripts.fa.gz))
 
 ## Pre-Run Setup:
 #### 1) Edit nextflow.config:
@@ -38,7 +39,8 @@ These pipelines include fastq mapping and through differential expression analys
 - Default is <i>"_R1.fastq.gz"</i> and <i>"R2.fastq.gz"</i>
 - File names can only have one "_". They should look like <i>"sample1_R1.fastq.gz"</i> and <i>"sample1_R2.fastq.gz"</i>.
 #### 3) Build a STAR genome or download one from [iGenomes](s3://ngi-igenomes/igenomes/Homo_sapiens/NCBI/GRCh38Decoy/Sequence/STARIndex/).
-#### 4) Download the transcripts.fasta file for your genome. Example: [Human HG38 Release48](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_48/gencode.v48.transcripts.fa.gz) from GenCode.
+#### 4) Download the transcripts.fasta file for your genome. 
+- Example: [Human HG38 Release48](https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_48/gencode.v48.transcripts.fa.gz) from GenCode.
 #### 5) Use Docker pull to download cbreuer/rnaseq:latest
 
 ## Run
